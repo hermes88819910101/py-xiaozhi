@@ -1,0 +1,11 @@
+{
+  "id": "com.hermes.agent",
+  "name": "Agent Tools (file read/write + shell)",
+  "version": "1.0.0",
+  "api_version": 1,
+  "entry": "plugin:register",
+  "runtime": "python-subprocess",
+  "call_timeout": 60,
+  "tool_name_prefix": "self.agent.",
+  "enabled_by_default": false
+}

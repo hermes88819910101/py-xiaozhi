@@ -150,6 +150,16 @@ class ConfigManager:
         "MCP_TOOLS": {
             "DISABLED": [],  # 如 ["music_player.stop", "self.application.launch"]
         },
+        # 内建 agent 工具（文件读写/列目录 + 指令执行）
+        "AGENT_TOOLS": {
+            "ENABLED": True,  # false = 整组不注册
+            "ALLOWED_DIRS": [],  # 空 = 用户家目录；文件读写/列目录的沙盒边界
+            "SHELL_ENABLED": True,  # false = 不注册 self.agent.shell.run
+            "SHELL_ALLOWLIST": [],  # 空 = 不限制；非空只允许命中的指令名
+            "SHELL_TIMEOUT_S": 30,  # 指令执行超时（秒）
+            "MAX_READ_BYTES": 65536,  # 单次读文件上限
+            "MAX_OUTPUT_BYTES": 16000,  # 单条 stdout/stderr 截断上限
+        },
         "AUDIO_DEVICES": {
             "input_device_id": None,
             "input_device_name": None,

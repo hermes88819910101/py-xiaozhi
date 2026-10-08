@@ -226,5 +226,6 @@ McpTool(
 | 截图 | `screenshot/` | `register.py` | `register_screenshot_tools`（McpPlugin） | — |
 | 音乐 | `music/` | `register.py` | `register_music_tools`（注入 MusicPlayer） | [music.md](music.md) |
 | 天气 | `weather/` | `register.py` + `service.py` | `register_weather_tools`（当前 mock） | — |
+| Agent | `agent/` | `register.py` | `register_agent_tools`（文件读写/列目录 + 指令执行） | [agent.md](agent.md) |
 
 用户目录下的**外挂**插件（自带依赖、安装即用）见 [MCP 外挂扩展](./plugins.md)；与内置 `register_*` 并存，不恢复全局装饰器发现。
