@@ -24,6 +24,14 @@ class VolumeController:
         self.is_arm = platform.machine().startswith(("arm", "aarch"))
         self._backend: VolumeBackend = self._create_backend()
 
+    @property
+    def available(self) -> bool:
+        """后端是否可用（如 Windows 无默认音频输出设备时为 False）."""
+        try:
+            return bool(getattr(self._backend, "available", True))
+        except Exception:
+            return True
+
     def _create_backend(self) -> VolumeBackend:
         if self.system == "Windows":
             from .windows import WindowsVolumeBackend

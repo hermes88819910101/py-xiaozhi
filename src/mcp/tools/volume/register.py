@@ -22,7 +22,7 @@ def create_volume_controller() -> VolumeController | None:
     try:
         return VolumeController()
     except Exception as e:
-        logger.error(f"音量控制器初始化失败: {e}", exc_info=True)
+        logger.warning(f"音量控制器初始化失败: {e}")
         return None
 
 
@@ -78,7 +78,7 @@ def register_volume_tools(
                 status = {
                     "volume": current,
                     "muted": current == 0,
-                    "available": True,
+                    "available": bool(getattr(controller, "available", True)),
                 }
             else:
                 status = {
